@@ -1,4 +1,4 @@
-# Azure Functions - Document Text Extraction
+# Azure Functions - Lysaght
 
 A serverless Azure Function that extracts text from PDF and DOCX documents by downloading them from URLs.
 
@@ -99,16 +99,10 @@ curl -X POST http://localhost:7071/api/doc_to_text \
   -d '{"url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"}'
 ```
 
-### Project Structure
+Requests to `localhost` can not be made in a docker containers, so instead to use `host.docker.internal`. For example:
 
-```
-azure_functions/
-├── function_app.py          # Main function app with HTTP trigger
-├── host.json               # Function host configuration
-├── local.settings.json     # Local development settings
-├── requirements.txt        # Python dependencies
-├── README.md              # This file
-└── __pycache__/           # Python cache directory
+```bash
+http://host.docker.internal:7071/api/doc_to_text
 ```
 
 ### Key Files
